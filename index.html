@@ -22,14 +22,15 @@
                 .withCustomCommonUrl('https://chat.blip.ai/')
                 .withEventHandler(BlipChat.ENTER_EVENT, function () {
                     blipChat.sendMessage({
-                        "type": "text/plain",
-                        "content": "Olá bom te ver por aqui :)",
+                        "type":"text/plain",
+                        "content":"Olá bom te ver por aqui :)",
                         "metadata": {
                             "origem": window.location.href
                         }
                     });
-                })
-                .build();
+                });
+                blipChat.build();
+                
         }
     })();
 </script>
