@@ -18,6 +18,11 @@
             .withAppKey('dGVzdGVibGlwNjA6MzQwNzYzOGUtZjUwZC00ZmUyLWFkZTQtNWU2M2M3ZjUxZTVm')
             .withButton({"color":"#2CC3D5","icon":""})
             .withCustomCommonUrl('https://chat.blip.ai/')
+            .withAuth({
+       authType: BlipChat.DEV_AUTH,
+       userIdentity: '1234567',
+       userPassword: 'MTIzNDU2',
+  })
             .build();
         }
     })();
