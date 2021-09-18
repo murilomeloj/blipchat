@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <title>BlipChat Plugin</title>
 </head>
 
 <body>
-
+    <div class="deviceMock">
+        <img src="devicemock.png" alt="tela do chat">
+        <div class="chatbox" id="chatbox"></div>
+    </div>
 </body>
 <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
 </script>
@@ -20,15 +24,7 @@
                 .withAppKey('dGVzdGVibGlwNjA6MzQwNzYzOGUtZjUwZC00ZmUyLWFkZTQtNWU2M2M3ZjUxZTVm')
                 .withButton({ "color": "#2CC3D5", "icon": "" })
                 .withCustomCommonUrl('https://chat.blip.ai/')
-                .withEventHandler(BlipChat.LOAD_EVENT, function () {
-                    blipChat.sendMessage({
-                        "type": "text/plain",
-                        "content": "Olá, quero conhecer",
-                        "metadata": {
-                            "origem": window.location.href
-                        }
-                    });
-                })
+                .withTarget('chatbox')
             blipChat.build()
         }
     })();
