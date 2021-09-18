@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlipChat Plugin</title>
 </head>
+
 <body>
-    
+
 </body>
 <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
 </script>
 <script>
     (function () {
         window.onload = function () {
-            new BlipChat()
-            .withAppKey('dGVzdGVibGlwNjA6MzQwNzYzOGUtZjUwZC00ZmUyLWFkZTQtNWU2M2M3ZjUxZTVm')
-            .withButton({"color":"#2CC3D5","icon":""})
-            .withCustomCommonUrl('https://chat.blip.ai/')
-            .withAccount({
-                    extras:{
-                        urlOrigem: window.location.href
-                    }
+            var blipChat = new BlipChat()
+                .withAppKey('dGVzdGVibGlwNjA6MzQwNzYzOGUtZjUwZC00ZmUyLWFkZTQtNWU2M2M3ZjUxZTVm')
+                .withButton({ "color": "#2CC3D5", "icon": "" })
+                .withCustomCommonUrl('https://chat.blip.ai/')
+                .withEventHandler(BlipChat.ENTER_EVENT, function () {
+                    blipChat.sendMessage({
+                        "type": "text/plain",
+                        "content": "Olá bom te ver por aqui :)",
+                        "metadata": {
+                            "origem": window.location.href
+                        }
+                    });
                 })
-            .build();
+                .build();
         }
     })();
 </script>
+
 </html>
