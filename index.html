@@ -20,7 +20,7 @@
                 .withAppKey('dGVzdGVibGlwNjA6MzQwNzYzOGUtZjUwZC00ZmUyLWFkZTQtNWU2M2M3ZjUxZTVm')
                 .withButton({ "color": "#2CC3D5", "icon": "" })
                 .withCustomCommonUrl('https://chat.blip.ai/')
-                .withEventHandler(BlipChat.ENTER_EVENT, function () {
+                .withEventHandler(BlipChat.LOAD_EVENT, function () {
                     blipChat.sendMessage({
                         "type": "text/plain",
                         "content": "Olá bom te ver por aqui",
@@ -28,7 +28,7 @@
                             "origem": window.location.href
                         }
                     });
-                });
+                })
             blipChat.build()
         }
     })();
